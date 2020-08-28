@@ -1,0 +1,12 @@
+lastfm.yml
+dump.rb
+test.rb
+friends.xml
+
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/
+
+.sass_cache/
+
+.DS_Store
