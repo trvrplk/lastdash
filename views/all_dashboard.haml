@@ -1,0 +1,8 @@
+%link(rel="stylesheet" href="/stylesheets/main.css")
+- friends.each do |f|
+  - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
+  - if tracks.class == Array
+    - t = tracks[1]
+    - art = t["image"]
+    %img(src = "#{art[1]}")
+    %p.songinfo= "#{f['name']}: #{t['name']} by #{t['artist']} from #{t['album']}"
