@@ -11,3 +11,4 @@ gem "nori"
 gem 'haml'
 gem "sass"
 gem "bourbon"
+gem "neat"
