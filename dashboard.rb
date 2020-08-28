@@ -3,8 +3,15 @@ require 'open-uri'
 require 'nori'
 
 
+configure do
+  set :scss, {:style => :compressed, :debug_info => false}
+  set :haml, :format => :html5
+end
 
-set :haml, :format => :html5
+get '/css/:name.css' do |name|
+  content_type :css
+  sass "sass/#{name}".to_sym, :layout => false
+end
 
 $keys = YAML.load_file("lastfm.yml")
 $api_key = $keys[:api_key]
@@ -21,7 +28,7 @@ end
 
 get '/you/:user' do
   tracks = get_recently_played("#{params[:user]}", 10)["lfm"]["recenttracks"]["track"]
-  haml :you_dashboard, :locals => {:tracks => tracks, :user => "#{params[:user]}"} 
+  haml :you_dashboard,  :layout => :default_layout, :locals => {:tracks => tracks, :user => "#{params[:user]}"} 
 end
 
 get '/all/:user' do

@@ -1,4 +1,3 @@
-%link(rel="stylesheet" href="/stylesheets/main.css")
 - friends.each do |f|
   - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
   - if tracks.class == Array
