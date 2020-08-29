@@ -1,7 +1,7 @@
 require 'sinatra'
+require 'sinatra/partial'
 require 'open-uri'
 require 'nori'
-
 
 configure do
   set :scss, {:style => :compressed, :debug_info => false}
@@ -25,13 +25,23 @@ def get_friends(user)
   $api_key}&format=xml").read)
 end
 
-
 get '/you/:user' do
   tracks = get_recently_played("#{params[:user]}", 10)["lfm"]["recenttracks"]["track"]
   haml :you_dashboard,  :layout => :default_layout, :locals => {:tracks => tracks, :user => "#{params[:user]}"} 
 end
 
-get '/all/:user' do
+get '/friends/:user' do
   friends = get_friends("#{params[:user]}")["lfm"]["friends"]["user"]
-  haml :all_dashboard, :layout => :default_layout, :locals => {:friends => friends}
+  haml :friends_dashboard, :layout => :default_layout, :locals => {:friends => friends}
+end
+
+get '/all/:user' do
+  get_recently_played("#{params[:user]}", 1)["lfm"]["recenttracks"]["track"] do |track|
+    if track.class == Array
+      @your_track = track
+    end
+  end
+
+  friends = get_friends("#{params[:user]}")["lfm"]["friends"]["user"]
+  haml :all_dashboard, :layout => :default_layout, :locals => {:your_track => @your_track, :friends => friends}
 end
