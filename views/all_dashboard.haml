@@ -1,5 +1,6 @@
+.alldash
 %h1.top Everyone online
-.you
+.you.col
   - if @your_track.class == Array
     - t = @your_track[1]
     - song = t["name"]
@@ -15,7 +16,7 @@
   - else
     %p.songinfo You're offline!
 
-.friends
+.friends.col
   - friends.each do |f|
     - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
     - if tracks.class == Array
