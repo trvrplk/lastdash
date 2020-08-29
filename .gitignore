@@ -1,6 +1,7 @@
 lastfm.yml
 dump.rb
 test.rb
+noritest.rb
 friends.xml
 
 /.bundle/
