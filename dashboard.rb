@@ -33,5 +33,5 @@ end
 
 get '/all/:user' do
   friends = get_friends("#{params[:user]}")["lfm"]["friends"]["user"]
-  haml :all_dashboard, :locals => {:friends => friends}
+  haml :all_dashboard, :layout => :default_layout, :locals => {:friends => friends}
 end

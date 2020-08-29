@@ -1,8 +1,12 @@
 %h1.top= "#{user}'s Recently Played"
 - tracks.each do |t|
   - song = t["name"]
-  -	artist = t["artist"]
-  -	album = t["album"]
+  - artist = t['artist']
+  - album = t["album"]
   - art = t["image"]
-  %img(src = "#{art[2]}")
-  %p.songinfo= "#{song} by #{artist} from #{t["album"]}"
+  - link = t["url"]
+  %img(src = "#{art[1]}")
+  %p.songinfo
+    %a(href="#{link}")
+      = '"' "#{song}" '" '
+    = "by #{artist} from #{album}"
