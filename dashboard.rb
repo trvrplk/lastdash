@@ -2,7 +2,6 @@ require 'sinatra'
 require 'sinatra/partial'
 require 'open-uri'
 require 'nori'
-require 'redis'
 
 configure do
   set :scss, {:style => :compressed, :debug_info => false}
