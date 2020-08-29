@@ -7,6 +7,7 @@ gem "shotgun"
 gem "puma"
 
 gem "nori"
+gem "nokogiri"
 
 gem 'haml'
 gem "sass"
