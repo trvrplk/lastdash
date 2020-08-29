@@ -1,0 +1,15 @@
+- friends.each do |f|
+  - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"])
+  - if tracks.class == Array
+    - t = tracks[1]
+    - song = t["name"]
+    - artist = t['artist']
+    - album = t["album"]
+    - art = t["image"]
+    - link = t["url"]
+    %img(src = "#{art[1]}")
+    %p.songinfo
+      = "#{f['name']}: "
+      %a(href="#{link}")
+        = '"' "#{song}" '" '
+      = "by #{artist} from #{album}"
