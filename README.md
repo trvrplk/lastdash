@@ -9,4 +9,19 @@ This is a little passion project of mine. I haven't done programming in a while,
 - Performance improvements--possibly moving to a Redis system to store results rather than just as part of the HTML; hopefully also a way to find which friends are online without having to get each friend's recent tracks and checking there, as that would reduce the number of requests needed to be sent and documents to be parsed
 
 ## Licensing
-A specific license is TBD, but for now I'll just go with that it's open source, and you should use your common sense.
+
+> Copyright 2020 trvrplk
+>
+> Licensed under the Apache License, Version 2.0 (the "License");
+> you may not use this file except in compliance with the License.
+> You may obtain a copy of the License at
+>
+>    http://www.apache.org/licenses/LICENSE-2.0
+>
+> Unless required by applicable law or agreed to in writing, software
+> distributed under the License is distributed on an "AS IS" BASIS,
+> WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+> See the License for the specific language governing permissions and
+> limitations under the License.
+
+I'm using the Apache license because I feel it covers all the right bases, but really I don't think it'll ever come down to me actually needing to enforce anything. Just don't be an ass.
