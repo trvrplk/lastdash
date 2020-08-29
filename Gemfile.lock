@@ -9,9 +9,6 @@ GEM
       tilt
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    neat (1.7.4)
-      bourbon (>= 4.0)
-      sass (>= 3.3)
     nio4r (2.5.2)
     nori (2.6.0)
     puma (4.3.5)
@@ -45,7 +42,6 @@ PLATFORMS
 DEPENDENCIES
   bourbon
   haml
-  neat
   nori
   puma
   rack
