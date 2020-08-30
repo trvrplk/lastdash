@@ -1,25 +1,8 @@
 %h1.top Everyone online
-.you
-  - if @your_track.class == Array
-    - t = @your_track[1]
-    - song = t["name"]
-    - artist = t['artist']
-    - album = t["album"]
-    - art = t["image"]
-    - link = t["url"]
-    %img(src = "#{art[1]}")
-    %p.songinfo
-      %a(href="#{link}")
-        = '"' "#{song}" '" '
-      = "by #{artist} from #{album}"
-  - else
-    %p.songinfo You're offline!
-
-.friends
-  - friends.each do |f|
-    - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
-    - if tracks.class == Array
-      - t = tracks[1]
+.two-col-grid
+  .you
+    - if @your_track.class == Array
+      - t = @your_track[1]
       - song = t["name"]
       - artist = t['artist']
       - album = t["album"]
@@ -27,7 +10,27 @@
       - link = t["url"]
       %img(src = "#{art[1]}")
       %p.songinfo
-        = "#{f['name']}: "
         %a(href="#{link}")
           = '"' "#{song}" '" '
-        = "by #{artist} from #{album}"
+        = "by #{artist} from"
+        %i= "#{album}"
+    - else
+      %p.songinfo You're offline!
+  
+  .friends
+    - friends.each do |f|
+      - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
+      - if tracks.class == Array
+        - t = tracks[1]
+        - song = t["name"]
+        - artist = t['artist']
+        - album = t["album"]
+        - art = t["image"]
+        - link = t["url"]
+        %img(src = "#{art[1]}")
+        %p.songinfo
+          = "#{f['name']}: "
+          %a(href="#{link}")
+            = '"' "#{song}" '" '
+          = "by #{artist} from"
+          %i= "#{album}"
