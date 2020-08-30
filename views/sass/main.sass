@@ -1,8 +1,8 @@
-@import "bourbon.css"
-@import "neat.css"
+@import "bourbon/bourbon"
 
 h1.top, p.songinfo
   font-family: Verdana
 
-.col
-  @include grid-column(6)
+.two-col-grid
+  display: grid
+  grid-template-columns: 1fr 1fr 
