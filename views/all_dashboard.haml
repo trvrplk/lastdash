@@ -12,7 +12,8 @@
       %p.songinfo
         %a(href="#{link}")
           = '"' "#{song}" '" '
-        = "by #{artist} from #{album}"
+        = "by #{artist} from"
+        %i= "#{album}"
     - else
       %p.songinfo You're offline!
   
@@ -31,4 +32,5 @@
           = "#{f['name']}: "
           %a(href="#{link}")
             = '"' "#{song}" '" '
-          = "by #{artist} from #{album}"
+          = "by #{artist} from"
+          %i= "#{album}"
