@@ -4,7 +4,7 @@ require 'open-uri'
 require 'nori'
 
 configure do
-  set :scss, {:style => :compressed, :debug_info => false}
+  set :sass, {:style => :compressed, :debug_info => false}
   set :haml, :format => :html5
 end
 
