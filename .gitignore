@@ -4,6 +4,8 @@ test.rb
 noritest.rb
 friends.xml
 
+test.txt
+
 /.bundle/
 /vendor/bundle
 /lib/bundler/man/

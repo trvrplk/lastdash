@@ -36,12 +36,11 @@ get '/friends/:user' do
 end
 
 get '/all/:user' do
-  get_recently_played("#{params[:user]}", 1)["lfm"]["recenttracks"]["track"] do |track|
-    if track.class == Array
-      @your_track = track
-    end
+  @tracks = get_recently_played("#{params[:user]}", 1)["lfm"]["recenttracks"]["track"] 
+  if @tracks.class == Array
+    @your_track = @tracks[1]
   end
-
+  
   friends = get_friends("#{params[:user]}")["lfm"]["friends"]["user"]
   haml :all_dashboard, :layout => :default_layout, :locals => {:your_track => @your_track, :friends => friends}
 end

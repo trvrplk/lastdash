@@ -1,8 +1,8 @@
 %h1.top Everyone online
 .two-col-grid
   .you
-    - if @your_track.class == Array
-      - t = @your_track[1]
+    - if your_track
+      - t = your_track
       - song = t["name"]
       - artist = t['artist']
       - album = t["album"]
