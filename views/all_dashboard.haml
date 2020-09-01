@@ -1,6 +1,6 @@
-%h1.top Everyone online
 .two-col-grid
   .you
+    %h1.top You
     - if your_track
       - t = your_track
       - song = t["name"]
@@ -18,6 +18,7 @@
       %p.songinfo You're offline!
   
   .friends
+    %h1.top Friends
     - friends.each do |f|
       - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
       - if tracks.class == Array
