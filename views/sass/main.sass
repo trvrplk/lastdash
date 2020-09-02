@@ -1,9 +1,14 @@
 @import "bourbon/bourbon"
-@import "base/base"
 
-h1.top, p.songinfo
-  font-family: Verdana
+body
+  font-family: $font-stack-verdana
 
 .two-col-grid
   display: grid
-  grid-template-columns: 1fr 1fr 
+  grid-template-columns: 1fr 1fr
+
+.col
+  @include margin(null 60px 3in)
+
+#you
+  @include border-style(null solid null null)

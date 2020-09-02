@@ -1,5 +1,5 @@
 .two-col-grid
-  .you
+  #you.col
     %h1.top You
     - if your_track
       - t = your_track
@@ -17,7 +17,7 @@
     - else
       %p.songinfo You're offline!
   
-  .friends
+  #friends.col
     %h1.top Friends
     - friends.each do |f|
       - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
