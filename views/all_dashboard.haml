@@ -10,10 +10,11 @@
       - link = t["url"]
       .song-info
         %img(src = "#{art[1]}")
-          %a(href="#{link}")
-            = '"' "#{song}" '" '
-          = "by #{artist} from"
-          %i= "#{album}"
+        %br
+        %a(href="#{link}")
+          = '"' "#{song}" '" '
+        = "by #{artist} from"
+        %i= "#{album}"
     - else
       %p.songinfo You're offline!
   
@@ -30,8 +31,9 @@
         - link = t["url"]
         .song-info
           %img(src = "#{art[1]}")
-            = "#{f['name']}: "
-            %a(href="#{link}")
-              = '"' "#{song}" '" '
-            = "by #{artist} from"
-            %i= "#{album}"
+          %br
+          = "#{f['name']}: "
+          %a(href="#{link}")
+            = '"' "#{song}" '" '
+          = "by #{artist} from"
+          %i= "#{album}"
