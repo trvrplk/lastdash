@@ -51,5 +51,5 @@ get '/all/:user' do
   
   friends = get_friends("#{params[:user]}")["lfm"]["friends"]["user"]
   your_avatar = get_info("#{params[:user]}")["lfm"]["user"]["image"][1]
-  haml :all_dashboard, :layout => :default_layout, :locals => {:your_track => @your_track, :friends => friends, :last_five => @last_five, :your_avatar => your_avatar}
+  haml :all_dashboard, :layout => :default_layout, :locals => {:user => "#{params[:user]}", :your_track => @your_track, :friends => friends, :last_five => @last_five, :your_avatar => your_avatar}
 end

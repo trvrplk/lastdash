@@ -2,6 +2,8 @@
   #you.col
     %h1.top You
     %img(src = "#{your_avatar}")
+    %br
+    = "#{user}"
     #you-first-song
       - if your_track
         %h2.top Now Playing:
@@ -41,6 +43,9 @@
       - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
       - if tracks.class == Array
         %img(src = "#{f["image"][1]}")
+        %br
+        = "#{f['name']}"
+        %br
         - t = tracks[1]
         - song = t["name"]
         - artist = t['artist']
@@ -50,7 +55,6 @@
         .song-info
           %img(src = "#{art[1]}")
           %br
-          = "#{f['name']}: "
           %a(href="#{link}")
             = '"' "#{song}" '" '
           = "by #{artist} from"
