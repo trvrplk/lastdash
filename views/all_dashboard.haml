@@ -1,23 +1,39 @@
 .two-col-grid
   #you.col
     %h1.top You
-    - if your_track
-      - t = your_track
-      - song = t["name"]
-      - artist = t['artist']
-      - album = t["album"]
-      - art = t["image"]
-      - link = t["url"]
-      .song-info
+    #you-first-song
+      - if your_track
+        %h2.top Now Playing:
+        - t = your_track
+        - song = t["name"]
+        - artist = t['artist']
+        - album = t["album"]
+        - art = t["image"]
+        - link = t["url"]
+        .song-info
+          %img(src = "#{art[1]}")
+          %br
+          %a(href="#{link}")
+            = '"' "#{song}" '" '
+          = "by #{artist} from"
+          %i= "#{album}"
+      - else
+        %p.songinfo You're offline!
+    #you-last-five
+      %h2.top Previously:
+      - last_five.each do |t|
+        - song = t["name"]
+        - artist = t['artist']
+        - album = t["album"]
+        - art = t["image"]
+        - link = t["url"]
         %img(src = "#{art[1]}")
-        %br
-        %a(href="#{link}")
-          = '"' "#{song}" '" '
-        = "by #{artist} from"
-        %i= "#{album}"
-    - else
-      %p.songinfo You're offline!
-  
+        %p.songinfo
+          %a(href="#{link}")
+            = '"' "#{song}" '" '
+          = "by #{artist} from" 
+          %i= "#{album}"
+
   #friends.col
     %h1.top Friends
     - friends.each do |f|
