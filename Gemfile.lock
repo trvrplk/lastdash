@@ -17,6 +17,8 @@ GEM
     puma (4.3.5)
       nio4r (~> 2.0)
     rack (2.2.3)
+    rack-cache (1.12.1)
+      rack (>= 0.4)
     rack-protection (2.0.8.1)
       rack
     rb-fsevent (0.10.4)
@@ -35,6 +37,11 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.8.1)
       tilt (~> 2.0)
+    sinatra-cache (0.3.7)
+      sinatra (>= 1.1.0)
+      sinatra-outputbuffer (>= 0.1.0)
+    sinatra-outputbuffer (0.1.0)
+      sinatra (>= 1.0.a)
     sinatra-partial (1.0.1)
       sinatra (>= 1.4)
     temple (0.8.2)
@@ -51,9 +58,11 @@ DEPENDENCIES
   nori
   puma
   rack
+  rack-cache
   sass
   shotgun
   sinatra
+  sinatra-cache
   sinatra-partial
 
 BUNDLED WITH

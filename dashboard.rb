@@ -3,6 +3,8 @@ require 'sinatra/partial'
 require 'open-uri'
 require 'nori'
 
+require 'rack-cache'
+
 configure do
   set :sass, {:style => :compressed, :debug_info => false}
   set :haml, :format => :html5
@@ -41,6 +43,7 @@ get '/friends/:user' do
 end
 
 get '/all/:user' do
+  cache_control :public, max_age: 120
   @tracks = get_recently_played("#{params[:user]}", 6)["lfm"]["recenttracks"]["track"] 
   if @tracks.class == Array
     @your_track = @tracks[1]
