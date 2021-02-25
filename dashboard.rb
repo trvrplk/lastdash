@@ -3,6 +3,7 @@ require 'sinatra/partial'
 require 'open-uri'
 require 'nori'
 
+require 'dalli'
 require 'rack-cache'
 
 configure do

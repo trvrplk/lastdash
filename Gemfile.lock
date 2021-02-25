@@ -3,6 +3,7 @@ GEM
   specs:
     bourbon (7.0.0)
       thor (~> 1.0)
+    dalli (2.7.11)
     ffi (1.13.1)
     haml (5.1.2)
       temple (>= 0.8.0)
@@ -53,6 +54,7 @@ PLATFORMS
 
 DEPENDENCIES
   bourbon
+  dalli
   haml
   nokogiri
   nori

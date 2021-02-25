@@ -7,6 +7,8 @@ gem 'sinatra-cache'
 gem "rack"
 gem "shotgun"
 gem "puma"
+
+gem "dalli"
 gem "rack-cache"
 
 gem "nori"
