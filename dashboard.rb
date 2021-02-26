@@ -44,11 +44,11 @@ end
 get '/all/:user' do
   cache_control :public, max_age: 120
   @tracks = get_recently_played("#{params[:user]}", 6)["lfm"]["recenttracks"]["track"] 
-  if @tracks.class == Array
-    @your_track = @tracks[1]
-    @last_five = @tracks[2..5]
-  else
+  if @tracks[0]["@nowplaying"]
+    @your_track = @tracks[0]
     @last_five = @tracks[1..5]
+  else
+    @last_five = @tracks[0..5]
   end
   
   friends = get_friends("#{params[:user]}")["lfm"]["friends"]["user"]

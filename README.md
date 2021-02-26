@@ -10,7 +10,7 @@ This is a little passion project of mine. I haven't done programming in a while,
 
 ## Known Bugs
 
-- On the unified dashboard, the "You" side will always show as now playing. Need to find a new way to check if you're online, since I switched to using a 6-value array and I *was* checking by whether the result for 1 value was an array
+- Users with no friends break the "all" dashboard because there's no array of friends to loop through
 
 ## Licensing
 
