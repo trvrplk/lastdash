@@ -1,5 +1,5 @@
-workers_count = Integer(ENV['WEB_CONCURRENCY'] || 2)
-threads_count = Integer(ENV['MAX_THREADS'] || 5)
+workers_count = Integer(ENV['WEB_CONCURRENCY'] || 3)
+threads_count = Integer(ENV['MAX_THREADS'] || 6)
 threads threads_count, threads_count
 
 if workers_count > 1
