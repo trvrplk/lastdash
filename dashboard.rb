@@ -24,13 +24,11 @@ def get_recently_played(user, limit)
 end
 
 def get_friends(user)
-  Nori.new.parse(URI.open("http://ws.audioscrobbler.com/2.0/?method=user.getfriends&user=#{user}&api_key=#{
-  $api_key}&format=xml").read)
+  Nori.new.parse(URI.open("http://ws.audioscrobbler.com/2.0/?method=user.getfriends&user=#{user}&api_key=#{$api_key}&format=xml").read)
 end
 
 def get_info(user)
-  Nori.new.parse(URI.open("http://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=#{user}&api_key=#{
-  $api_key}&format=xml").read)
+  Nori.new.parse(URI.open("http://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=#{user}&api_key=#{$api_key}&format=xml").read)
 end
 
 get '/you/:user' do
