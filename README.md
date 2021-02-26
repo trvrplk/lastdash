@@ -8,6 +8,10 @@ This is a little passion project of mine. I haven't done programming in a while,
 - Unified page (ie. not two separate interfaces for your now-playing and your friends', as well as an index page where you can enter your username)
 - Performance improvements--possibly moving to a Redis system to store results rather than just as part of the HTML; hopefully also a way to find which friends are online without having to get each friend's recent tracks and checking there, as that would reduce the number of requests needed to be sent and documents to be parsed
 
+## Known Bugs
+
+- On the unified dashboard, the "You" side will always show as now playing. Need to find a new way to check if you're online, since I switched to using a 6-value array and I *was* checking by whether the result for 1 value was an array
+
 ## Licensing
 
 > Copyright 2020 trvrplk
