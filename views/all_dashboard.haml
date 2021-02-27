@@ -1,5 +1,5 @@
 .two-col-grid
-  #you.col
+  #you.big-col
     %h1.top You
     %img(src = "#{your_avatar}")
     %br
@@ -37,46 +37,47 @@
           = "by #{artist} from" 
           %i= "#{album}"
 
-  #friends.col
-    %h1.top Friends
-    - if friends.class == Array
-      - friends.each do |f|
-        - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
-        - if tracks.class == Array
-          %img(src = "#{f["image"][1]}")
-          %br
-          = "#{f['name']}"
-          %br
-          - t = tracks[1]
-          - song = t["name"]
-          - artist = t['artist']
-          - album = t["album"]
-          - art = t["image"]
-          - link = t["url"]
-          .song-info
-            %img(src = "#{art[1]}")
-            %br
-            %a(href="#{link}")
-              = '"' "#{song}" '" '
-            = "by #{artist} from"
-            %i= "#{album}"
-    - elsif friends.class == Hash
-      - f = friends
-      %img(src = "#{f["image"][1]}")
-      %br
-      = "#{f['name']}"
-      %br
-      - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
-      - t = tracks
-      - song = t["name"]
-      - artist = t['artist']
-      - album = t["album"]
-      - art = t["image"]
-      - link = t["url"]
-      .song-info
-        %img(src = "#{art[1]}")
+  #friends.big-col
+    .two-col-grid
+      %h1.top Friends
+      - if friends.class == Array
+        - friends.each do |f|
+          - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
+          - if tracks.class == Array
+            .col
+              %img.avatar(src = "#{f["image"][1]}")
+              = "#{f['name']}"
+            .col
+              - t = tracks[1]
+              - song = t["name"]
+              - artist = t['artist']
+              - album = t["album"]
+              - art = t["image"]
+              - link = t["url"]
+              .song-info
+                %img(src = "#{art[1]}")
+                %br
+                %a(href="#{link}")
+                  = '"' "#{song}" '" '
+                = "by #{artist} from"
+                %i= "#{album}"
+      - elsif friends.class == Hash
+        - f = friends
+        %img.avatar(src = "#{f["image"][1]}")
         %br
-        %a(href="#{link}")
-          = '"' "#{song}" '" '
-        = "by #{artist} from"
-        %i= "#{album}"
+        = "#{f['name']}"
+        %br
+        - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
+        - t = tracks
+        - song = t["name"]
+        - artist = t['artist']
+        - album = t["album"]
+        - art = t["image"]
+        - link = t["url"]
+        .song-info
+          %img(src = "#{art[1]}")
+          %br
+          %a(href="#{link}")
+            = '"' "#{song}" '" '
+          = "by #{artist} from"
+          %i= "#{album}"
