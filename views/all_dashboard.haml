@@ -39,23 +39,22 @@
 
   #friends.col
     %h1.top Friends
-    - if friends.class == Array
-      - friends.each do |f|
-        - t = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"][1]
-        - song = t["name"]
-        - artist = t['artist']
-        - album = t["album"]
-        - art = t["image"]
-        - link = t["url"]
-        - image = f["image"][1]
-        %img(src = "#{image}")
+    - friends.each do |f|
+      - t = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"][1]
+      - song = t["name"]
+      - artist = t['artist']
+      - album = t["album"]
+      - art = t["image"]
+      - link = t["url"]
+      - image = f["image"][1]
+      %img(src = "#{image}")
+      %br
+      = "#{f['name']}"
+      %br
+      .song-info
+        %img(src = "#{art[1]}")
         %br
-        = "#{f['name']}"
-        %br
-        .song-info
-          %img(src = "#{art[1]}")
-          %br
-          %a(href="#{link}")
-            = '"' "#{song}" '" '
-          = "by #{artist} from"
-          %i= "#{album}"
+        %a(href="#{link}")
+          = '"' "#{song}" '" '
+        = "by #{artist} from"
+        %i= "#{album}"
