@@ -41,42 +41,40 @@
     %h1.top Friends
     - if friends.class == Array
       - friends.each do |f|
-        - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
-        - if tracks.class == Array
-          %img(src = "#{f["image"][1]}")
-          %br
+        - t = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"][1]
+        - song = t["name"]
+        - artist = t['artist']
+        - album = t["album"]
+        - art = t["image"]
+        - link = t["url"]
+        %img(src = "#{f["image"][1]}")
+        %br
           = "#{f['name']}"
           %br
-          - t = tracks[1]
-          - song = t["name"]
-          - artist = t['artist']
-          - album = t["album"]
-          - art = t["image"]
-          - link = t["url"]
           .song-info
-            %img(src = "#{art[1]}")
-            %br
-            %a(href="#{link}")
-              = '"' "#{song}" '" '
-            = "by #{artist} from"
-            %i= "#{album}"
-    - elsif friends.class == Hash
-      - f = friends
-      %img(src = "#{f["image"][1]}")
-      %br
-      = "#{f['name']}"
-      %br
-      - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
-      - t = tracks
-      - song = t["name"]
-      - artist = t['artist']
-      - album = t["album"]
-      - art = t["image"]
-      - link = t["url"]
-      .song-info
-        %img(src = "#{art[1]}")
-        %br
-        %a(href="#{link}")
-          = '"' "#{song}" '" '
-        = "by #{artist} from"
-        %i= "#{album}"
+          %img(src = "#{art[1]}")
+          %br
+          %a(href="#{link}")
+            = '"' "#{song}" '" '
+          = "by #{artist} from"
+          %i= "#{album}"
+//    - elsif friends.class == Hash
+//      - f = friends
+//      %img(src = "#{f["image"][1]}")
+//      %br
+//      = "#{f['name']}"
+//      %br
+//      - tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
+//      - t = tracks
+//      - song = t["name"]
+//      - artist = t['artist']
+//      - album = t["album"]
+//      - art = t["image"]
+//      - link = t["url"]
+//      .song-info
+//        %img(src = "#{art[1]}")
+//        %br
+//        %a(href="#{link}")
+//          = '"' "#{song}" '" '
+//        = "by #{artist} from"
+//        %i= "#{album}"

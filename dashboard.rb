@@ -44,6 +44,7 @@ end
 get '/all/:user' do
   cache_control :public, max_age: 120
   @tracks = get_recently_played("#{params[:user]}", 6)["lfm"]["recenttracks"]["track"] 
+  # Check if user is currently scrobbling or not
   if @tracks[0]["@nowplaying"]
     @your_track = @tracks[0]
     @last_five = @tracks[1..5]
@@ -53,5 +54,25 @@ get '/all/:user' do
   
   friends = get_friends("#{params[:user]}")["lfm"]["friends"]["user"]
   your_avatar = get_info("#{params[:user]}")["lfm"]["user"]["image"][1]
-  haml :all_dashboard, :layout => :default_layout, :locals => {:user => "#{params[:user]}", :your_track => @your_track, :friends => friends, :last_five => @last_five, :your_avatar => your_avatar}
+
+  if friends.class == Array
+    @online_friends = []
+    friends.each do |f|
+      tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
+      if tracks.class == Array
+        @online_friends << f
+      end
+    end
+  end
+
+  @online_friends.each do |f|
+    t = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"][1]
+    song = t["name"]
+    artist = t['artist']
+    album = t["album"]
+    art = t["image"]
+    link = t["url"]
+  end
+
+  haml :all_dashboard, :layout => :default_layout, :locals => {:user => "#{params[:user]}", :your_track => @your_track, :friends => @online_friends, :last_five => @last_five, :your_avatar => your_avatar}
 end
