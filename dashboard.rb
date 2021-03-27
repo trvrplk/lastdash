@@ -65,14 +65,6 @@ get '/all/:user' do
     end
   end
 
-  @online_friends.each do |f|
-    t = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"][1]
-    song = t["name"]
-    artist = t['artist']
-    album = t["album"]
-    art = t["image"]
-    link = t["url"]
-  end
 
   haml :all_dashboard, :layout => :default_layout, :locals => {:user => "#{params[:user]}", :your_track => @your_track, :friends => @online_friends, :last_five => @last_five, :your_avatar => your_avatar}
 end
