@@ -10,7 +10,8 @@ This is a little passion project of mine. I haven't done programming in a while,
 
 ## Known Bugs
 
-- Users with no friends break the "all" dashboard because there's no array of friends to loop through
+- Users with no or one friend break the "all" dashboard because there's no array of friends to loop through
+- Songs with no art show `{@mbid=>""}` or something like that
 
 ## Licensing
 
