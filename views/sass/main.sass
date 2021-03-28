@@ -7,6 +7,10 @@ body
   display: grid
   grid-template-columns: 1fr 1fr
 
+.main-sub-col
+  // .25 in because the other .25 are applied to all .col elements
+  @include margin (null .25in null .5in)
+
 .col
   @include margin(O.25cm 60px 3in)
    
