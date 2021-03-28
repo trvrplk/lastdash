@@ -14,7 +14,7 @@
         - art = t["image"]
         - link = t["url"]
         .song-info
-          %img(src = "#{art[1]}")
+          %img(src = "#{art[2]}")
           %br
           %a(href="#{link}")
             = '"' "#{song}" '" '
@@ -30,7 +30,7 @@
         - album = t["album"]
         - art = t["image"]
         - link = t["url"]
-        %img(src = "#{art[1]}")
+        %img(src = "#{art[2]}")
         %p.songinfo
           %a(href="#{link}")
             = '"' "#{song}" '" '
@@ -52,7 +52,7 @@
       = "#{f[0]['name']}"
       %br
       .song-info
-        %img(src = "#{art[1]}")
+        %img(src = "#{art[2]}")
         %br
         %a(href="#{link}")
           = '"' "#{song}" '" '
