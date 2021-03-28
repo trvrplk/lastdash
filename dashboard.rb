@@ -60,7 +60,7 @@ get '/all/:user' do
     friends.each do |f|
       tracks = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"]
       if tracks.class == Array
-        @online_friends << f
+        @online_friends << [f, tracks[0]]
       end
     end
   end

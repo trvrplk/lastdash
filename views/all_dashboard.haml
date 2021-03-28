@@ -39,17 +39,17 @@
 
   #friends.col
     %h1.top Friends
+    / f[1] is hash for the song, f[0] is the user
     - friends.each do |f|
-      - t = get_recently_played(f["name"], 1)["lfm"]["recenttracks"]["track"][1]
-      - song = t["name"]
-      - artist = t['artist']
-      - album = t["album"]
-      - art = t["image"]
-      - link = t["url"]
-      - image = f["image"][1]
+      - song = f[1]["name"]
+      - artist = f[1]['artist']
+      - album = f[1]["album"]
+      - art = f[1]["image"]
+      - link = f[1]["url"]
+      - image = f[0]["image"][1]
       %img(src = "#{image}")
       %br
-      = "#{f['name']}"
+      = "#{f[0]['name']}"
       %br
       .song-info
         %img(src = "#{art[1]}")
