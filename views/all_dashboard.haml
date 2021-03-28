@@ -1,5 +1,5 @@
-.two-col-grid
-  #you.col
+.two-col-grid#main-col
+  #you.col.main-sub-col
     %h1.top You
     %img(src = "#{your_avatar}")
     %br
@@ -37,7 +37,7 @@
           = "by #{artist} from" 
           %i= "#{album}"
 
-  #friends.col
+  #friends.col.main-sub-col
     %h1.top Friends
     / f[1] is hash for the song, f[0] is the user
     - friends.each do |f|
