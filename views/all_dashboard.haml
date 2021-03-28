@@ -41,20 +41,24 @@
     %h1.top Friends
     / f[1] is hash for the song, f[0] is the user
     - friends.each do |f|
-      - song = f[1]["name"]
-      - artist = f[1]['artist']
-      - album = f[1]["album"]
-      - art = f[1]["image"]
-      - link = f[1]["url"]
-      - image = f[0]["image"][1]
-      %img(src = "#{image}")
-      %br
-      = "#{f[0]['name']}"
-      %br
-      .song-info
-        %img(src = "#{art[2]}")
-        %br
-        %a(href="#{link}")
-          = '"' "#{song}" '" '
-        = "by #{artist} from"
-        %i= "#{album}"
+      .two-col-grid.listed-user
+        - song = f[1]["name"]
+        - artist = f[1]['artist']
+        - album = f[1]["album"]
+        - art = f[1]["image"]
+        - link = f[1]["url"]
+        - image = f[0]["image"][1]
+        .col
+          %img(src = "#{art[2]}")
+
+        .col
+          .user-info
+            %img(src = "#{image}")
+            %br
+            = "#{f[0]['name']}"
+          %br
+          .song-info
+            %a(href="#{link}")
+              = '"' "#{song}" '" '
+            = "by #{artist} from"
+            %i= "#{album}"            
