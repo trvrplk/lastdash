@@ -9,7 +9,7 @@ require 'rack-cache'
 configure do
   set :sass, {:style => :compressed, :debug_info => false}
   set :haml, :format => :html5
-  set :static_cache_control [:public, :max_age => 120]
+  set :static_cache_control, [:public, :max_age => 120]
 end
 
 get '/css/:name.css' do |name|
