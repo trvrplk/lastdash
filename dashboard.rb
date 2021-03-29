@@ -43,6 +43,8 @@ end
 
 get '/all/:user' do
   cache_control :public, max_age: 120
+  static_cache_control :public, max_age: 120
+  
   @tracks = get_recently_played("#{params[:user]}", 6)["lfm"]["recenttracks"]["track"] 
   # Check if user is currently scrobbling or not
   if @tracks[0]["@nowplaying"]
