@@ -1,10 +1,4 @@
-lastfm.yml
-dump.rb
-test.rb
-noritest.rb
-friends.xml
-
-test.txt
+.ruby-version
 
 /.bundle/
 /vendor/bundle

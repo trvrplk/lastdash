@@ -65,6 +65,9 @@ get '/all/:user' do
       if tracks.class == Array
         @online_friends << [f, tracks[0]]
       end
+      rescue OpenURI::HTTPError => e
+        puts "Skipping, #{e.message}"
+        next
     end
   end
 
