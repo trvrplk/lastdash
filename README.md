@@ -1,6 +1,8 @@
 # LastDash
 
-This is a little passion project of mine. I haven't done programming in a while, but I've been really wanting a nice Last.fm dashboard--something like a homepage showing me what I and my friends are listening to, perhaps with some other interesting data. There are some precidents here: Jake Ledoux's [Last.fm Live](https://jakeledoux.com/live/) is a decently well-known tool that's similar, and Matthias Loibl has [a little thing](https://lastfm.matthiasloibl.com) that's very close to what I'd like. I don't expect people to be able to help me too much, since I'm having a hard time describing exactly what I'm talking about, but if you'd like to help you're welcome to do so. Just make sure to create a `lastfm.yml` file with an `api_key` and `api_secret` attribute. (I don't want to release mine, of course.)
+This is a little passion project of mine. I haven't done programming in a while, but I've been really wanting a nice Last.fm dashboard--something like a homepage showing me what I and my friends are listening to, perhaps with some other interesting data. There are some precidents here: Jake Ledoux's [Last.fm Live](https://jakeledoux.com/live/) is a decently well-known tool that's similar, and Matthias Loibl has [a little thing](https://lastfm.matthiasloibl.com) that's very close to what I'd like. I don't expect people to be able to help me too much, since I'm having a hard time describing exactly what I'm talking about, but if you'd like to help you're welcome to do so.
+
+A live instance is running at https://lastdashfm.herokuapp.com; just go to that url `/all/*your username*`.
 
 ## Hopes for the future
 
